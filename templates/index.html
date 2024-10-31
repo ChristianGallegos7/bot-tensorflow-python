@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoBot Chat</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="chat-widget">
+        <div class="chat-header" onclick="toggleChat()">
+            <span>💬 AutoBot</span>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input-container">
+                <input type="text" id="mensaje" placeholder="Escribe tu mensaje..." 
+                       onkeypress="if(event.key === 'Enter') enviarMensaje()">
+                <button onclick="enviarMensaje()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chatBody = document.getElementById('chat-body');
+            chatBody.classList.toggle('active');
+        }
+
+        function enviarMensaje() {
+            const mensaje = document.getElementById('mensaje').value;
+            if (mensaje.trim() !== "") {
+                mostrarMensaje('Tú: ' + mensaje);
+                fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ mensaje: mensaje })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    mostrarMensaje('AutoBot: ' + data.respuesta);
+                    document.getElementById('mensaje').value = "";
+                });
+            }
+        }
+
+        function mostrarMensaje(mensaje) {
+            const chatMessages = document.getElementById('chat-messages');
+            const mensajeDiv = document.createElement('div');
+            mensajeDiv.classList.add('mensaje');
+            mensajeDiv.textContent = mensaje;
+            chatMessages.appendChild(mensajeDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+/* Estilos globales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Chat Widget */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+/* Header del Chat */
+.chat-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Cuerpo del Chat */
+.chat-body {
+    display: none;
+    background-color: white;
+    max-height: 400px;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+}
+
+/* Mostrar el chat al hacer clic */
+.chat-body.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor de mensajes */
+.chat-messages {
+    padding: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+/* Estilo de los mensajes */
+.mensaje {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+/* Mensaje del usuario */
+.mensaje:nth-child(odd) {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+}
+
+/* Contenedor del input */
+.chat-input-container {
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input-container input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    outline: none;
+}
+
+.chat-input-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.chat-input-container button:hover {
+    background-color: #0056b3;
+}
