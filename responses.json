@@ -1,0 +1,65 @@
+{
+    "saludo": {
+        "keywords": [
+            "hola",
+            "buenos dias",
+            "buenas tardes"
+        ],
+        "responses": [
+            "¡Hola!",
+            "¡Buenos días! ¿En qué puedo ayudarte?",
+            "¡Hola! ¿Buscas un auto hoy?"
+        ]
+    },
+    "busqueda_auto": {
+        "keywords": [
+            "busco un auto",
+            "quiero un auto",
+            "necesito un auto"
+        ],
+        "responses": [
+            "Tenemos autos de de tipo deportivo y familiar. ¿Qué tipo de auto buscas?"
+        ]
+    },
+    "tipo_deportivo": {
+        "keywords": [
+            "deportivo"
+        ],
+        "responses": [
+            "Excelente elección, los autos deportivos son muy populares. ¿Te gustaría saber sobre nuestras opciones de financiamiento?"
+        ]
+    },
+    "tipo_familiar": {
+        "keywords": [
+            "familiar"
+        ],
+        "responses": [
+            "Perfecto, tenemos varios modelos familiares. ¿Tienes algún presupuesto en mente?"
+        ]
+    },
+    "financiamiento": {
+        "keywords": [
+            "si",
+            "financiamiento",
+            "quiero saber sobre financiamiento"
+        ],
+        "responses": [
+            "Perfecto, contamos con varias opciones de financiamiento flexibles. ¿Te gustaría información sobre las tasas de interés o el plazo?"
+        ]
+    },
+    "prueba_manejo": {
+        "keywords": [
+            "probar",
+            "prueba de manejo"
+        ],
+        "responses": [
+            "¡Claro! Podemos programar una prueba de manejo. ¿Te gustaría visitar nuestra tienda?"
+        ]
+    },
+    "desconocido": {
+        "keywords": [],
+        "responses": [
+            "Lo siento, no entendí eso. ¿Podrías reformular tu pregunta?"
+        ]
+    }
+}
