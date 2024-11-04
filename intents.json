@@ -3,211 +3,108 @@
         {
             "tag": "saludo",
             "patterns": [
-                "hola",
-                "que tal",
-                "como estas",
-                "saludos",
-                "buenas"
+                "Hola",
+                "Buenos días",
+                "Buenas tardes",
+                "Qué tal",
+                "Hey",
+                "Hola, quiero comprar un auto",
+                "Necesito un coche",
+                "Me interesa comprar un vehículo",
+                "Busco un auto"
             ],
             "responses": [
-                "Hola!",
-                "Buenos dias!",
-                "Que gusto verte!"
+                "¡Hola! Soy tu asistente de ventas, ¿qué tipo de auto estás buscando?",
+                "¡Bienvenido! ¿En qué puedo ayudarte a encontrar tu auto ideal?",
+                "¡Hola! Cuéntame, ¿qué tipo de vehículo te interesa?"
             ]
         },
         {
-            "tag": "nombre",
+            "tag": "lista_autos",
             "patterns": [
-                "como es tu nombre",
-                "como te llamas",
-                "cual es tu nombre"
+                "Qué autos tienen",
+                "Muéstrame los autos disponibles",
+                "Quiero ver el catálogo",
+                "Qué vehículos venden",
+                "Lista de autos",
+                "Inventario disponible",
+                "Qué marcas manejan",
+                "Modelos disponibles"
             ],
             "responses": [
-                "Me llamo Juan Pablo",
-                "Mi nombre es Juan Pablo"
+                "Claro, te muestro nuestro catálogo actual:",
+                "Estos son los autos que tenemos disponibles:",
+                "Contamos con los siguientes modelos:"
             ]
         },
         {
-            "tag": "compra_auto",
+            "tag": "precio",
             "patterns": [
-                "quiero comprar un auto",
-                "quiero un coche",
-                "me interesa un auto",
-                "estoy buscando un coche",
-                "quiero adquirir un vehiculo"
+                "Cuánto cuesta",
+                "Precio",
+                "Valor del auto",
+                "Cuál es el precio del Toyota",
+                "Precio del Honda",
+                "Cuánto vale el Ford",
+                "Costo del vehículo",
+                "Precio final"
             ],
             "responses": [
-                "Tenemos autos de todos los tipos! ¿Que tipo de auto buscas?",
-                "Claro! ¿Buscas algo deportivo o familiar?",
-                "¿Tienes en mente un presupuesto específico?"
+                "El precio de este modelo es:",
+                "Este vehículo tiene un valor de:",
+                "El costo del auto es:"
             ]
         },
         {
-            "tag": "precio_auto",
+            "tag": "caracteristicas",
             "patterns": [
-                "cual es el precio del auto",
-                "cuanto cuesta",
-                "precio de los coches",
-                "precio de los vehiculos",
-                "me puedes dar una idea del costo"
+                "Qué características tiene",
+                "Detalles del auto",
+                "Especificaciones",
+                "Qué incluye",
+                "Datos técnicos",
+                "Equipamiento",
+                "Qué motor tiene",
+                "Consumo de gasolina"
             ],
             "responses": [
-                "Los precios varian segun el modelo y las caracteristicas.",
-                "Tenemos autos desde 10,000 USD en adelante.",
-                "Depende del modelo, pero podemos encontrar opciones para cualquier presupuesto."
-            ]
-        },
-        {
-            "tag": "auto_electrico",
-            "patterns": [
-                "tienes autos electricos",
-                "vendes coches electricos",
-                "me interesa un auto electrico",
-                "quiero saber sobre autos electricos",
-                "hay opciones electricas disponibles"
-            ],
-            "responses": [
-                "Si, contamos con varios modelos electricos. ¿Te interesa conocer los beneficios?",
-                "Claro! Los autos electricos son una excelente opcion. Podemos discutir sus ventajas."
-            ]
-        },
-        {
-            "tag": "tipos_auto",
-            "patterns": [
-                "que tipos de autos tienen",
-                "que modelos ofrecen",
-                "me puedes hablar de los diferentes tipos de coches",
-                "que categorias de autos vendes"
-            ],
-            "responses": [
-                "Ofrecemos sedan, SUV, camionetas, y deportivos. ¿Tienes alguna preferencia?",
-                "Tenemos una amplia variedad: deportivos, familiares, electricos y mas."
+                "Las características de este modelo son:",
+                "Este auto cuenta con las siguientes especificaciones:",
+                "Te detallo las características:"
             ]
         },
         {
             "tag": "financiamiento",
             "patterns": [
-                "tienen opciones de financiamiento",
-                "como puedo financiar un auto",
-                "hay planes de pago disponibles",
-                "quiero saber sobre financiamiento"
+                "Tienen financiamiento",
+                "Opciones de pago",
+                "Se puede pagar a plazos",
+                "Dan crédito",
+                "Formas de pago",
+                "Mensualidades",
+                "Requisitos para crédito"
             ],
             "responses": [
-                "Si, ofrecemos varias opciones de financiamiento. ¿Te gustaría saber mas?",
-                "Podemos ayudarte a encontrar un plan que se ajuste a tu presupuesto."
+                "Sí, contamos con varias opciones de financiamiento:",
+                "Tenemos estos planes de financiamiento disponibles:",
+                "Te puedo ofrecer las siguientes opciones de pago:"
             ]
         },
         {
-            "tag": "caracteristicas_auto",
+            "tag": "contacto",
             "patterns": [
-                "que caracteristicas tienen los autos",
-                "cuanto es la garantia",
-                "que tipo de tecnologia incluyen",
-                "tienen autos con GPS",
-                "los autos son automaticos o manuales"
+                "Quiero comprarlo",
+                "Me interesa adquirirlo",
+                "Cómo puedo comprarlo",
+                "Datos de contacto",
+                "Número de teléfono",
+                "WhatsApp",
+                "Dónde están ubicados"
             ],
             "responses": [
-                "Nuestros autos tienen diversas caracteristicas, desde tecnologia avanzada hasta alta seguridad. ¿Buscas algo especifico?",
-                "Todos nuestros modelos vienen con garantia. ¿Te interesa alguna caracteristica en particular?"
-            ]
-        },
-        {
-            "tag": "servicios_postventa",
-            "patterns": [
-                "que servicios ofrecen despues de la compra",
-                "tienen mantenimiento",
-                "hay servicios de reparacion",
-                "como es el servicio al cliente"
-            ],
-            "responses": [
-                "Ofrecemos servicio de mantenimiento y reparaciones. Tu satisfacción es nuestra prioridad.",
-                "Contamos con un servicio postventa excelente para garantizar tu tranquilidad."
-            ]
-        },
-        {
-            "tag": "test_drive",
-            "patterns": [
-                "quiero hacer una prueba de manejo",
-                "puedo probar el auto",
-                "me interesa un test drive",
-                "quiero manejarlo antes de comprar"
-            ],
-            "responses": [
-                "Claro! Podemos programar una prueba de manejo. ¿Te gustaría visitar nuestra tienda?",
-                "Organizamos pruebas de manejo para que puedas conocer el vehiculo mejor."
-            ]
-        },
-        {
-            "tag": "agradecimiento",
-            "patterns": [
-                "gracias",
-                "muchas gracias",
-                "te lo agradezco",
-                "agradezco tu ayuda",
-                "mil gracias"
-            ],
-            "responses": [
-                "De nada!",
-                "Es un placer ayudarte!",
-                "Estamos para servirte!"
-            ]
-        },
-        {
-            "tag": "despedida",
-            "patterns": [
-                "adios",
-                "hasta luego",
-                "nos vemos",
-                "gracias por tu ayuda",
-                "hasta pronto"
-            ],
-            "responses": [
-                "Adios! Que tengas un buen dia!",
-                "Hasta luego!"
-            ]
-        },
-        {
-            "tag": "presupuesto_auto",
-            "patterns": [
-                "tengo un presupuesto de 50000 dolares",
-                "mi presupuesto es 50000",
-                "puedo gastar 50000 dolares"
-            ],
-            "responses": [
-                "Genial! Con un presupuesto de 50000 dolares, tenemos varias opciones de autos electricos disponibles. ¿Te gustaría ver algunas recomendaciones?",
-                "Con 50000 dolares, hay excelentes autos electricos que puedes considerar. ¿Quieres que te muestre algunos?"
-            ]
-        },
-        {
-            "tag": "programar_prueba",
-            "patterns": [
-                "quiero programar una prueba de manejo",
-                "me gustaría probar el auto",
-                "puedo hacer una prueba"
-            ],
-            "responses": [
-                "Claro! Podemos programar una prueba de manejo. ¿Te gustaría visitar nuestra tienda?",
-                "Por supuesto! ¿Cuándo te gustaría venir a probar el auto?"
-            ]
-        },
-        {
-            "tag": "seguimiento_presupuesto",
-            "patterns": [
-                "mi presupuesto es 50000 dolares",
-                "puedo gastar hasta 50000"
-            ],
-            "responses": [
-                "Perfecto! Con un presupuesto de 50000 dolares, podemos ofrecerte varias opciones de autos eléctricos. ¿Te gustaría conocer más sobre las características de alguno?"
-            ]
-        },
-        {
-            "tag": "interes_auto",
-            "patterns": [
-                "estoy interesado en autos electricos",
-                "me gustan los autos electricos"
-            ],
-            "responses": [
-                "¡Eso es genial! Los autos eléctricos son una opción muy buena. ¿Tienes alguna marca o modelo en mente?"
+                "Puedes contactarnos al siguiente número:",
+                "Nuestro asesor de ventas te atenderá en:",
+                "Para concretar la compra, contáctanos en:"
             ]
         }
     ]
