@@ -8,45 +8,37 @@ from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.optimizers import SGD
 import random
 
-# Descargar recursos necesarios de NLTK
+# Descargar recursos de NLTK
 nltk.download('punkt')
 nltk.download('wordnet')
 
 # Inicializar lematizador
 lemmatizer = WordNetLemmatizer()
 
-# Cargar el archivo de intents
+# Cargar archivo de intents
 with open('intents.json', encoding='utf-8') as archivo:
     intents = json.load(archivo)
 
-# Listas para procesamiento
+# Listas para palabras, clases y documentos
 palabras = []
 clases = []
 documentos = []
 ignorar_caracteres = ['?', '¿', '!', '¡', '.', ',']
 
-# Procesar los patrones de los intents
+# Procesamiento de los patrones en intents
 for intent in intents['intents']:
     for pattern in intent['patterns']:
-        # Tokenizar cada palabra
         word_list = nltk.word_tokenize(pattern)
         palabras.extend(word_list)
-        # Agregar documentos
         documentos.append((word_list, intent['tag']))
-        # Agregar a las clases
         if intent['tag'] not in clases:
             clases.append(intent['tag'])
 
-# Lematizar y convertir a minúsculas
-palabras = [lemmatizer.lemmatize(palabra.lower()) for palabra in palabras if palabra not in ignorar_caracteres]
-palabras = sorted(list(set(palabras)))
+# Lematizar y quitar duplicados
+palabras = sorted(list(set([lemmatizer.lemmatize(palabra.lower()) for palabra in palabras if palabra not in ignorar_caracteres])))
 clases = sorted(list(set(clases)))
 
-print(f"Palabras únicas: {len(palabras)}")
-print(f"Clases: {len(clases)}")
-print(f"Documentos: {len(documentos)}")
-
-# Guardar palabras y clases procesadas
+# Guardar palabras y clases
 pickle.dump(palabras, open('palabras.pkl', 'wb'))
 pickle.dump(clases, open('clases.pkl', 'wb'))
 
@@ -55,45 +47,39 @@ training = []
 output_empty = [0] * len(clases)
 
 for documento in documentos:
-    # Inicializar bag of words
     bag = []
-    # Lista de palabras tokenizadas
-    word_patterns = documento[0]
-    # Lematizar cada palabra
-    word_patterns = [lemmatizer.lemmatize(word.lower()) for word in word_patterns]
-    # Crear bag of words
+    word_patterns = [lemmatizer.lemmatize(word.lower()) for word in documento[0]]
     for palabra in palabras:
-        bag.append(1) if palabra in word_patterns else bag.append(0)
+        bag.append(1 if palabra in word_patterns else 0)
     
-    # Crear salida
     output_row = list(output_empty)
     output_row[clases.index(documento[1])] = 1
     training.append([bag, output_row])
 
-# Mezclar datos y convertir a numpy array
+# Mezclar y convertir a arrays
 random.shuffle(training)
 training = np.array(training, dtype=object)
+train_x = np.array(list(training[:, 0]))
+train_y = np.array(list(training[:, 1]))
 
-# Separar features y labels
-train_x = list(training[:, 0])
-train_y = list(training[:, 1])
+# Crear y ajustar el modelo
+model = Sequential([
+    Dense(256, input_shape=(len(train_x[0]),), activation='relu'),  # Aumentar a 256 neuronas
+    Dropout(0.5),
+    Dense(128, activation='relu'),
+    Dropout(0.5),
+    Dense(64, activation='relu'),
+    Dropout(0.5),
+    Dense(len(train_y[0]), activation='softmax')
+])
 
-# Crear modelo
-model = Sequential()
-model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(len(train_y[0]), activation='softmax'))
-
-# Compilar modelo
+# Compilar modelo con una tasa de aprendizaje menor
 sgd = SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
-# Entrenar modelo
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
+# Entrenar y guardar historial
+hist = model.fit(train_x, train_y, epochs=300, batch_size=5, verbose=1)  # Aumentar a 300 épocas
 
-# Guardar modelo
+# Guardar modelo entrenado
 model.save('modelo_chatbot.keras', save_format='keras')
-
 print("Modelo guardado")
