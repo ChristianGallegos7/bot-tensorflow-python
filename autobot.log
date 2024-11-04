@@ -1,0 +1,14 @@
+2024-11-04 22:00:00,824 - __main__ - WARNING - Response templates file not found, using defaults
+2024-11-04 22:00:01,550 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-11-04 22:00:01,551 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-11-04 22:00:01,555 - werkzeug - INFO -  * Restarting with stat
+2024-11-04 22:00:13,587 - __main__ - WARNING - Response templates file not found, using defaults
+2024-11-04 22:00:14,286 - werkzeug - WARNING -  * Debugger is active!
+2024-11-04 22:00:14,346 - werkzeug - INFO -  * Debugger PIN: 711-332-089
+2024-11-04 22:00:15,494 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2024 22:00:15] "GET / HTTP/1.1" 200 -
+2024-11-04 22:00:21,798 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2024 22:00:21] "GET / HTTP/1.1" 200 -
+2024-11-04 22:00:31,833 - werkzeug - INFO - 127.0.0.1 - - [04/Nov/2024 22:00:31] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2024-11-04 22:00:39,626 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Christian7\\Desktop\\bot-tensorflow-python\\app.py', reloading
+2024-11-04 22:00:40,715 - werkzeug - INFO -  * Restarting with stat
+2024-11-04 22:04:58,924 - werkzeug - INFO -  * Restarting with stat
